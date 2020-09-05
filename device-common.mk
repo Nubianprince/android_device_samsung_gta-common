@@ -19,28 +19,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, device/samsung/msm8916-common/msm8916.mk)
 
 # Inherit from vendor
-$(call inherit-product-if-exists, vendor/samsung/gta-common/gta-common-vendor.mk)
+$(call inherit-product-if-exists, vendor/samsung/gte-common/gte-common-vendor.mk)
 
 LOCAL_PATH := device/samsung/gta-common
 
 # System properties
 -include $(LOCAL_PATH)/device_props.mk
-
-# Audio
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/configs/audio/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
-	$(LOCAL_PATH)/configs/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml
-
-# Bluetooth
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/configs/bluetooth/iop_bt.db:system/etc/bluetooth/iop_bt.db \
-	$(LOCAL_PATH)/configs/bluetooth/iop_device_list.conf:system/etc/bluetooth/iop_device_list.conf
-
-# Camera configs
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/configs/camera/A05QF_sr544_module_info.xml:system/etc/A05QF_sr544_module_info.xml \
-	$(LOCAL_PATH)/configs/camera/A05QF_sr544_module_info.xml:system/etc/B05QF_sr544_module_info.xml \
-	$(LOCAL_PATH)/configs/camera/A05QF_sr544_module_info.xml:system/etc/C05QF_sr544_module_info.xml
 
 # Camera
 PRODUCT_PACKAGES += Camera2
